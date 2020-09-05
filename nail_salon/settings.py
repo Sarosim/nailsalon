@@ -43,20 +43,66 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     # ... include the providers you want to enable:
-    'allauth.socialaccount.providers.amazon',
-    'allauth.socialaccount.providers.discord',
     'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.flickr',
-    'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.instagram',
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.linkedin_oauth2',
-    'allauth.socialaccount.providers.microsoft',
-    'allauth.socialaccount.providers.paypal',
     'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.windowslive',
 ]
+
+SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '123',
+            'secret': '456',
+            'key': ''
+        }
+    }
+}
+
+# Extra settings - originally not part of settings.py - for testing purposes
+
+# user logs in by entering  either one of their username or e-mail address:
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_SIGNUP_FORM_CLASS = None
+# A string pointing to a custom form class (e.g. ‘myapp.forms.SignupForm’)
+# that is used during signup to ask the user for additional input (e.g.
+# newsletter signup, birth date). This class should implement a
+# def signup(self, request, user) method,
+# where user represents the newly signed up user.
+
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+# When signing up, makes the user type in their password twice IF set to True
+
+# A list of usernames that can’t be used by user.
+ACCOUNT_USERNAME_BLACKLIST = [
+    "LadyBug",
+    "Ladybug",
+    "ladybug",
+    "ladybugs",
+    "myladybug",
+    "lady_bug",
+]
+
+ACCOUNT_USERNAME_MIN_LENGTH = 3
+
+# Enforcing uniqueness of e-mail addresses:
+ACCOUNT_UNIQUE_EMAIL = True
+
+SOCIALACCOUNT_AUTO_SIGNUP = True
+# Attempt to bypass the signup form by using fields (e.g. username, email)
+# retrieved from the social account provider. If a conflict arises due to
+# a duplicate e-mail address the signup form will still kick in.
+
+# ...back to default...
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +125,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth', # we need this for allauth, too
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
