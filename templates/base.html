@@ -24,9 +24,12 @@
     <!-- MY CSS -->
     {% block core-css %}
     <link rel="stylesheet" href="static/css/general_styles.css" />
-    {% endblock %} {% block extrta-css %} {% endblock %}
+    {% endblock %}
+    
+    {% block extrta-css %}
+    {% endblock %}
 
-    <title>Ladybug Nails {% block title_part_2 %}{% endblock %}</title>
+    <title>Ladybug Nails {% block sub_head_title %}{% endblock %}</title>
 
     <!-- SCRIPTS *********    C. moved these to the head... ******  -->
     {% block core-js-head %}
