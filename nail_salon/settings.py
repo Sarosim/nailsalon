@@ -43,35 +43,44 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     # ... include the providers you want to enable:
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.linkedin',
-    'allauth.socialaccount.providers.linkedin_oauth2',
-    'allauth.socialaccount.providers.twitter',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.instagram',
+    # 'allauth.socialaccount.providers.linkedin',
+    # 'allauth.socialaccount.providers.linkedin_oauth2',
+    # 'allauth.socialaccount.providers.twitter',
 ]
 
 SITE_ID = 1
 
+# temporarily log the emails to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Provider specific settings
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': '123',
-            'secret': '456',
-            'key': ''
-        }
-    }
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         # For each OAuth based provider, either add a ``SocialApp``
+#         # (``socialaccount`` app) containing the required client
+#         # credentials, or list them here:
+#         'APP': {
+#             'client_id': '123',
+#             'secret': '456',
+#             'key': ''
+#         }
+#     }
+# }
 
 # Extra settings - originally not part of settings.py - for testing purposes
 
 # user logs in by entering  either one of their username or e-mail address:
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+# Determines the e-mail verification method during signup:
+# options are either "mandatory", "optional" or "none".
+# Setting this to “mandatory” requires ACCOUNT_EMAIL_REQUIRED to be True
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+
 ACCOUNT_SIGNUP_FORM_CLASS = None
 # A string pointing to a custom form class (e.g. ‘myapp.forms.SignupForm’)
 # that is used during signup to ask the user for additional input (e.g.
@@ -97,12 +106,15 @@ ACCOUNT_USERNAME_MIN_LENGTH = 3
 # Enforcing uniqueness of e-mail addresses:
 ACCOUNT_UNIQUE_EMAIL = True
 
-SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_AUTO_SIGNUP = False
 # Attempt to bypass the signup form by using fields (e.g. username, email)
 # retrieved from the social account provider. If a conflict arises due to
 # a duplicate e-mail address the signup form will still kick in.
 
 # ...back to default...
+
+LOGIN_URL = 'accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
