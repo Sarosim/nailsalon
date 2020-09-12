@@ -2,63 +2,97 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% block meta %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    {% endblock %}
+    <head>
+        {% block meta %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        {% endblock %}
 
-    <!-- BOOTSTRAP  *********  Lumen for testing - for now ******  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.0/lumen/bootstrap.min.css"
-    />
+        <!-- BOOTSTRAP  *********  Lumen for testing - for now ******  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.0/lumen/bootstrap.min.css" />
 
-    <!-- FontAwesome 5 - not the kit **** TO BE REPLACED  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
+        <!-- FontAwesome 5 - not the kit **** TO BE REPLACED  -->
+        <script src="https://kit.fontawesome.com/732dca80a8.js" crossorigin="anonymous"></script>
 
-    <!-- MY CSS -->
-    {% block core-css %}
-    <link rel="stylesheet" href="{% static 'css/general_styles.css' %}" />
-    {% endblock %}
-    
-    {% block extrta-css %}
-    {% endblock %}
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'images/cube_icon.ico' %}" type="image/x-icon">
 
-    <title>Ladybug Nails {% block sub_head_title %}{% endblock %}</title>
+        <!-- MY CSS -->
+        {% block core-css %}
+        <link rel="stylesheet" href="{% static 'css/general_styles.css' %}"/>
+        {% endblock %} {% block extrta-css %} {% endblock %}
 
-    <!-- SCRIPTS *********    C. moved these to the head... ******  -->
-    {% block core-js-head %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    {% endblock %}
-  </head>
-  <body>
-    <header class="container-fluid fixed-top">
-    <p> This is the header</p>
+        <title>Ladybug Nails {% block sub_head_title %}{% endblock %}</title>
 
-    {% block header %} 
-    {% endblock %}
+        <!-- SCRIPTS *********    C. moved these to the head... ******  -->
+        {% block core-js-head %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </head>
+<body>
+	{% block header %} {% endblock %}
 
-    </header>
+	<!-- Container for Django messages -->
+	{% if messages %}
+	<div class="message-container"></div>
+	{% endif %}
 
-    <!-- Container for Django messages -->
-    {% if messages %}
-    <div class="message-container"></div>
-    {% endif %}
+	<nav class="navbar navbar-expand-sm fixed-top navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbarToggler" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+		<div class="collapse navbar-collapse" id="mainNavbarToggler">
+			<a class="navbar-brand" href="#">Logo</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Nav link #1</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Nav link #2</a>
+				</li>
+			</ul>
+            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Sign-in</span>
+                    </a>
+                </li>
+                                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Register</span>
+                    </a>
+                </li>
+                                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Log out</span>
+                    </a>
+                </li>
+                                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
 
-    <h3 class="p-5 m-5">Hello Vilag!</h3>
-
-    {% block content %}
-    {% endblock %} 
-    
-    {% block extra-js-body %}
-    <!-- SCRIPTS at the bottom of the body  -->
-    {% endblock %}
-  </body>
+	{% block content %} {% endblock %} {% block extra-js-body %}
+	<!-- SCRIPTS at the bottom of the body  -->
+	{% endblock %}
+</body>
 </html>

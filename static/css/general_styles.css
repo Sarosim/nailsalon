@@ -1,3 +1,19 @@
 body {
+    /* Setting navbar hieght and the same padding for the body */
+    --main-navbar-height: 3.5625rem;
+    /* Defining BRAND COLOURS */
+    --brand-colour-primary: #a31852;
+    --brand-colour-secondary: #024e15;
+}
+
+.navbar {
+    
+    height: var(--main-navbar-height);
+}
+
+body {
+    /* to give a visible colour to the background for dev */
     background-color: beige;
+
+    padding-top: var(--main-navbar-height)
 }
