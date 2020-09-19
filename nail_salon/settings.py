@@ -29,7 +29,7 @@ SECRET_KEY = '0tv9@=5c4te!^8w9ax@8(axtw7o3gte!gh4g&$o_tmf0xqe$p#' # Create a new
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://ladybug-nails.herokuapp.com']
+ALLOWED_HOSTS = ['ladybug-nails.herokuapp.com']
 
 
 # Application definition
