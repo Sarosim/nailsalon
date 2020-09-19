@@ -1,9 +1,24 @@
 body {
     /* Setting navbar hieght and the same padding for the body */
     --main-navbar-height: 3.5625rem;
+
     /* Defining BRAND COLOURS */
-    --brand-colour-primary: #a31852;
-    --brand-colour-secondary: #024e15;
+    --colour-brand-primary: #a31852;
+    --colour-brand-secondary: #024e15;
+
+    --colour-action-primary: red;
+    --colour-action-secondary: yellow;
+
+    --colour-background-primary: beige;
+    --colour-background-secondary: beige;
+
+    --colour-grey-primary: grey;
+    --colour-grey-secondary: #4e4e4e;
+    --colour-grey-light: #d4d4d4;
+    --colour-grey-dark: #252525;
+
+    /* Bootstrap sets the fontsize to .875rem, seems tooo small,  */
+    font-size: 1rem;
 }
 
 .navbar {
@@ -16,4 +31,18 @@ body {
     background-color: beige;
 
     padding-top: var(--main-navbar-height)
+}
+
+/* These probably go separate - used by Django in allauth Forms for button class */
+
+.primaryAction  {
+    background-color: var(--colour-action-primary);
+    color:black;
+    border-radius: 5px;
+}
+
+.secondaryAction {
+    background-color: var(--colour-action-secondary);
+    color: black;
+    border-radius: 5px;
 }

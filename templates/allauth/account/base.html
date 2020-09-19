@@ -1,3 +1,16 @@
 {% extends "base.html" %}
 
 {% block sub_head_title %} | {% block head_title %}{% endblock %}{% endblock %}
+
+{% block page_content %}
+
+<div style="background-color: #77ffe9; min-height: 100vh;">
+    <p>styles just for testing prposes</p> <!-- FOR DEV ******** TO BE DELETED!!! -->
+    <div class="container my-2 py-3" style="background-color: #e9ff77; ">
+    
+        <!-- blockcontent from allauth's base.html  -->
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

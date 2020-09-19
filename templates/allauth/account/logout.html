@@ -7,7 +7,10 @@
 {% block content %}
 <h1>{% trans "Sign Out" %}</h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<p>{% trans 'Have you finished your booking? Are you sure you want to sign out?' %}</p>
+
+<!-- Marketing message can come here with link to model, updated by admin -->
+<p>Marketing message can come here for users who are about to sign out...</p>
 
 <form method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}
