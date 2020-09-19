@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
     # MYAPPS
     'home',
+    'crispy_forms',
 ]
 
 SITE_ID = 1

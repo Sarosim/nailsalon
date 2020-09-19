@@ -1,11 +1,15 @@
 {% extends "account/base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+
+<h3>Welcome message comes here</h3>
 
 <h1>{% trans "Sign In" %}</h1>
 
@@ -18,11 +22,11 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <div class="socialaccount_ballot">
 
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
+    <ul class="socialaccount_providers">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
 
-  <div class="login-or">{% trans 'or' %}</div>
+    <div class="login-or">{% trans 'or' %}</div>
 
 </div>
 
@@ -34,13 +38,18 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <p><small>Password must be minimum n character long, contain ...</small></p>
+    
+    {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    
+    <!-- class TO BE CHANGED HERE -->
+    <a class="nemtudom" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
 </form>
 
 {% endblock %}
