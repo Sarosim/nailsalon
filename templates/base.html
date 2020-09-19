@@ -59,39 +59,60 @@
 				</li>
 			</ul>
 			<ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-				<li class="nav-item">
-					<a class="nav-link" href="#">
-						<i class="fas fa-sign-in-alt"></i>
-						<span>Sign-in</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">
-						<i class="fas fa-user-plus"></i>
-						<span>Register</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">
-						<i class="fas fa-sign-out-alt"></i>
-						<span>Log out</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">
-						<i class="fas fa-user"></i>
-						<span>Profile</span>
-					</a>
-				</li>
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <li>
+                            <a class="nav-link" title="This link is for the superuser(s) to the dashboard" href="{% url 'home' %}">
+                                <i class="fas fa-chess-queen"></i>
+                                <span>Superuser</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_logout' %}">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Log out</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="View your Profile" href="#">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Your Username" href="#">
+                            <span><small>Logged in as: {{request.user}}</small></span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Sign-in</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                {% endif %}
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </ul>
 		</div>
 	</nav>
 
-	{% block content %} {% endblock %} {% block extra-js-body %}
+    <!-- blockcontent from app's base.html Named page_content  -->
+	{% block page_content %} 
+    {% endblock %}
+    {% block extra-js-body %}
 	<!-- SCRIPTS at the bottom of the body  -->
 	{% endblock %}
 </body>
