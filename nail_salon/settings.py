@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+if os.path(env.py):
+    import env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +29,7 @@ SECRET_KEY = '0tv9@=5c4te!^8w9ax@8(axtw7o3gte!gh4g&$o_tmf0xqe$p#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ladybug-nails.herokuapp.com']
 
 
 # Application definition
@@ -53,6 +56,7 @@ INSTALLED_APPS = [
 
     # MYAPPS
     'home',
+    'crispy_forms',
 ]
 
 SITE_ID = 1
