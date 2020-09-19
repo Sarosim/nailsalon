@@ -109,7 +109,10 @@
 		</div>
 	</nav>
 
-	{% block content %} {% endblock %} {% block extra-js-body %}
+    <!-- blockcontent from app's base.html Named page_content  -->
+	{% block page_content %} 
+    {% endblock %}
+    {% block extra-js-body %}
 	<!-- SCRIPTS at the bottom of the body  -->
 	{% endblock %}
 </body>
