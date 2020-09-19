@@ -1,9 +1,22 @@
 body {
     /* Setting navbar hieght and the same padding for the body */
     --main-navbar-height: 3.5625rem;
+    
     /* Defining BRAND COLOURS */
-    --brand-colour-primary: #a31852;
-    --brand-colour-secondary: #024e15;
+    --colour-brand-primary: #a31852;
+    --colour-brand-secondary: #024e15;
+
+    --colour-action-primary: yellow;
+    --colour-action-secondary: yellow;
+
+    --colour-background-primary: beige;
+    --colour-background-secondary: beige;
+
+    --colour-grey-primary: grey;
+    --colour-grey-secondary: #4e4e4e;
+
+    /* Bootstrap sets the fontsize to .875rem, seems tooo small,  */
+    font-size: 1rem;
 }
 
 .navbar {
