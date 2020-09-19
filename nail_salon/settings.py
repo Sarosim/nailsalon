@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # if os.path.exists('env.py'):
 #     import env
@@ -29,7 +30,7 @@ SECRET_KEY = '0tv9@=5c4te!^8w9ax@8(axtw7o3gte!gh4g&$o_tmf0xqe$p#' # Create a new
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ladybug-nails.herokuapp.com']
+ALLOWED_HOSTS = ['ladybug-nails.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -169,6 +170,7 @@ WSGI_APPLICATION = 'nail_salon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# LOCAL SQLITE DB:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -176,6 +178,10 @@ DATABASES = {
     }
 }
 
+#POSTGRES DB ON HEROKU:
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://ide kell bemasolni a url- Heroku config varsbol ha innen akarok abba dolgozni')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
