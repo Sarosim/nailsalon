@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="{% static 'css/general_styles.css' %}"/>
         {% endblock %} {% block extrta-css %} {% endblock %}
 
-        <title>Ladybug Nails {% block sub_head_title %}{% endblock %}</title>
+        <title>LadyBird Nails {% block sub_head_title %}{% endblock %}</title>
 
         <!-- SCRIPTS *********    C. moved these to the head... ******  -->
         {% block core-js-head %}
@@ -45,11 +45,11 @@
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-		<div class="collapse navbar-collapse" id="mainNavbarToggler">
-			<a class="navbar-brand" href="#">Logo</a>
+		<div class="collapse navbar-collapse navbar-light bg-light" id="mainNavbarToggler">
+			<a class="navbar-brand" href="{% url 'home' %}">Logo</a>
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nav link #1</a>
@@ -112,6 +112,15 @@
     <!-- blockcontent from app's base.html Named page_content  -->
 	{% block page_content %} 
     {% endblock %}
+
+
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    
+    <!-- Core theme JS-->
+    <script src="{% static 'js/scripts_sb_creative.js' %}"></script>
+    
     {% block extra-js-body %}
 	<!-- SCRIPTS at the bottom of the body  -->
 	{% endblock %}
