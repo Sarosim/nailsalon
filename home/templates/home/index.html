@@ -9,21 +9,52 @@
 {% block sub_head_title %} | Home{% endblock %}
 
 {% block page_content %}
+    <!-- Special banner medium or larger screens -->
+    <!-- gets displayed if banner set ON (true) in admin panel  -->
+    {% if banner_display %}
+        <div class="d-none d-md-block col-md-3">
+            <div class="cta cta-md" style="top:{{banner_pos_top}}; left:{{banner_pos_left}}; width:{{banner_width}};">
+                <div class="cta-title">
+                    <span>{{banner_text_1}}</span>
+                    <a href="#" class="cta-btn">{{banner_button}}</a>
+                    <span>{{banner_text_2}}</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
     <!-- Masthead-->
     <header class="masthead">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10 align-self-end">
                     <h1 class="text-uppercase text-white font-weight-bold">Top Header - landing message</h1>
-                    <hr class="divider my-4" />
+                    <hr class="divider my-1 my-md-4" />
                 </div>
                 <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 font-weight-light mb-5">Secondary message - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt soluta odit impedit repudiandae</p>
+                    <h3 class="text-white-75 font-weight-light mb-3 mb-md-5">
+                        Secondary message - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt soluta odit impedit
+                    </h3>
                     <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Special banner small screens up to medium -->
+    <!-- gets displayed if banner set ON (true) in admin panel  -->
+    {% if banner_display %}
+        <div class="row d-block d-md-none m-3">
+            <div class="cta cta-sm">
+                <div class="cta-title">
+                    <span>{{banner_text_1}}</span>
+                    <a href="#" class="cta-btn">{{banner_button}}</a>
+                    <span>{{banner_text_2}}</span>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
 
     <!-- About-->
 
@@ -31,12 +62,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-2">
-                    <div class="p-5">
+                    <div class="p-3 p-md-5">
                         <img class="img-fluid rounded-circle" src="{% static 'img/temp_profile.jpg' %}" alt="Aniko">
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <div class="p-5">
+                    <div class="p-3 p-md-5">
                         <h2 class="display-4">A little bit about me...</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                     </div>
@@ -46,13 +77,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-2">
-                    <div class="p-5">
+                    <div class="p-3 p-md-5">
                         <h2 class="display-4">A little bit about LadyBirdNails...</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1 ">
-                    <div class="p-5">
+                    <div class="p-3 p-md-5">
                         <img class="img-fluid rounded-circle" src="{% static 'images/logo_large.jpeg' %}" alt="LadyBirdNails">
                     </div>
                 </div>

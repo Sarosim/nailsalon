@@ -118,13 +118,81 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     max-height: 45px !important;
 }
 
+/* The Call To Action extra banner that is optional on the page */
+
+.cta {
+    display: block;
+    margin: 0 0 1rem 0;
+    background: #ffe175;
+    padding: 0.9rem;
+    font-size: 1.0rem;
+    text-align: center;
+    -webkit-box-shadow: 8px 8px 17px #a1a1a1,
+                -8px -8px 15px #fff;
+            box-shadow: 8px 8px 17px #a1a1a1,
+                -8px -8px 15px #fff;
+}
+
+.cta-md {
+    -webkit-transform: rotate(8deg);
+        -ms-transform: rotate(8deg);
+            transform: rotate(8deg);
+    position: absolute;
+}
+
+.cta-sm {
+    -webkit-transform: rotate(2deg);
+        -ms-transform: rotate(2deg);
+            transform: rotate(2deg);
+    position: absolute;
+    bottom: -1vh;
+    width: 90vw;
+}
+
+.cta-title {
+    font-weight: 700;
+    line-height: 220%;
+    color: red;
+}
+
+.cta-btn {
+    text-decoration: none;
+    z-index: 1500;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-weight: 700;
+    text-align: center;
+    padding: .6rem 1.4rem;
+    color: #fff;
+    background-color: #007e00;
+    -webkit-box-shadow: inset 3px 3px 7px #cbced1,
+                inset -3px -3px 7px #fff;
+            box-shadow: inset 3px 3px 7px #cbced1,
+                inset -3px -3px 7px #fff;
+    -webkit-transition: 700ms;
+    -o-transition: 700ms;
+    transition: 700ms;
+}
+
+.cta-btn:hover {
+    background: #00ee0c;
+    text-decoration: none;
+}
+
+.cta-btn:active {
+    background: #005e18;
+    text-decoration: none;
+}
+
 /* Masthead styles - SB -'creative' */
 
 header.masthead {
     /* padding-top: 10rem; */
     padding-bottom: calc(10rem - 4.5rem);
     height: 100vh; /* calc(100vh - var(--main-navbar-height)); */
-    background: linear-gradient(to bottom, rgba(236, 199, 199, 0.6), rgba(236, 199, 199, 0.2) ), url("/static/img/temp_background.jpg");
+    background: url("/static/img/temp_background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -150,6 +218,12 @@ header.masthead h1 {
 @media (min-width: 1200px) {
     header.masthead h1 {
         font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    h2 {
+        font-size: 2.2rem !important;
     }
 }
 
