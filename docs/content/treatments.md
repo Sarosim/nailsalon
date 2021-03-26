@@ -1,1 +1,2 @@
-pqpqpqpqpqgi plpl
+# **Treatments**
+## Pedicures
