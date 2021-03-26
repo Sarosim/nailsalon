@@ -1,2 +1,2 @@
 # **Treatments**
-## Pedicures
+## *Pedicures*
