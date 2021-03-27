@@ -1,0 +1,17 @@
+/* Carousel */
+    .carousel-item {
+        height: 88vh;
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        opacity: .25;
+    }
+
+    .carousel-caption {
+        left: 15%;
+        right: 50%;
+        bottom: 20%;
+        border:1px solid black;
+    }
+
+/* Carousel END */

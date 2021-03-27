@@ -27,13 +27,15 @@
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    
+    /* Setting navbar hieght and the same padding for the body */
+    --main-navbar-height: 3.5625rem;
+
 }
 
 
 body {
-    /* Setting navbar hieght and the same padding for the body */
-    --main-navbar-height: 3.5625rem;
-
+    
     /* Defining BRAND COLOURS */
     --colour-brand-primary: #e9624f;
     --colour-brand-secondary: #c8eded;
@@ -51,8 +53,8 @@ body {
 
     /* Bootstrap sets the fontsize to .875rem, seems tooo small,  */
     font-size: 1rem;
-
-    padding-top: var(--main-navbar-height)
+    /* Taking the navbar's height to set top padding for the body */
+    padding-top: var(--main-navbar-height);
 
     /* StartBootstrap 'Creative' theme settings */
 
