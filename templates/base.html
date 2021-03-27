@@ -47,17 +47,26 @@
                 <img src="{% static 'images/logo_small.jpeg' %}" alt="LadyBird logo">
             </a>
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active">
+				<!-- Placeholder for left aligned nav items -->
+			</ul>
+			<ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
 					<a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Nav link #1</a>
+					<a class="nav-link" href="#">Treatments</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Nav link #2</a>
+					<a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+					<a class="nav-link" href="#">Gallery</a>
+                </li>
+                <li class="nav-item">
+					<a class="nav-link" href="#">Contact Us</a>
 				</li>
 			</ul>
-			<ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                         <li>
@@ -73,37 +82,9 @@
                             <span>Log out</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" title="View your Profile" href="#">
-                            <i class="fas fa-user"></i>
-                            <span>Profile</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" title="Your Username" href="#">
-                            <span><em><small>Logged in as: {{request.user}}</small></em></span>
-                        </a>
-                    </li>
                 {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">
-                            <i class="fas fa-sign-in-alt"></i>
-                            <span>Sign-in</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">
-                            <i class="fas fa-user-plus"></i>
-                            <span>Register</span>
-                        </a>
-                    </li>
+                    <!-- Currently ne login functionality for users, just superuser -->
                 {% endif %}
-			</ul>
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" style="max-width: 85vw;" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </ul>
 		</div>
 	</nav>
